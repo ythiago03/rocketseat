@@ -1,7 +1,7 @@
-const string = '50°F';
+const string = '50°C';
 
 function verificarNumber(string){
-    const itCelsius = string.endsWith('°C');
+    const itCelsius = string.toUpperCase().endsWith('°C');
 
     if(itCelsius){
         return true;
@@ -13,13 +13,14 @@ function convertNumber(string){
     const verified = verificarNumber(string);
 
     if(verified){
-        let celsius = Number(string.replace('°C',''));
+        // fluxo celsius para fahrenheit
+        let celsius = Number(string.toUpperCase().replace('°C',''));
         const toFahtenheit = (celsius * 9/5) + 32;
 
         return `A conversão de ${string} para fahrenheit é: ${toFahtenheit}°F`
     }
 
-    let fahrenheit = Number(string.replace('°F',''));
+    let fahrenheit = Number(string.toUpperCase().replace('°F',''));
     const toCelsius = (fahrenheit - 32) * 5/9;
 
     return `A conversão de ${string} para celsius é: ${toCelsius}°C`
