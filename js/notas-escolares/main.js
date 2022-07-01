@@ -33,10 +33,8 @@ class Note{
         }else{
             return 'Sua nota é F'
         }
-        
     }
 }
-
 
 const notaFinal = new Note(nota)
 console.log(notaFinal.notas)
