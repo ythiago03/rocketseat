@@ -15,13 +15,15 @@ function convertNumber(string){
     if(verified){
         let celsius = Number(string.replace('°C',''));
         const toFahtenheit = (celsius * 9/5) + 32;
+
         return `A conversão de ${string} para fahrenheit é: ${toFahtenheit}°F`
     }
+
     let fahrenheit = Number(string.replace('°F',''));
     const toCelsius = (fahrenheit - 32) * 5/9;
+
     return `A conversão de ${string} para celsius é: ${toCelsius}°C`
 }
-
 
 console.log(convertNumber(string));
 
