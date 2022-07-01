@@ -38,3 +38,4 @@ class Note{
 
 const notaFinal = new Note(nota)
 console.log(notaFinal.notas)
+ 
