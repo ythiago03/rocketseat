@@ -8,16 +8,34 @@ class Atleta{
 
     definirCategoria(){
         if(this.peso >=50){
-            this.categoria = 'Infantil'
+            this.categoria = 'Infantil';
         }
         else if(this.peso >= 65){
-            this.categoria = 'Juvenil'
+            this.categoria = 'Juvenil';  
         }
         else{
-            this.categoria = 'Adulto'
+            this.categoria = 'Adulto';
         }
     }
 }
 
-const marcos = new Atleta(45);
-console.log(marcos.categoria)
+class Lutador extends Atleta{
+    constructor(peso){
+        super(peso)
+    }
+
+    definirCategoria(){
+        if(this.peso >= 54){
+            this.categoria = 'pluma';
+        }
+        else if(this.peso >= 60){
+            this.categoria = 'leve';  
+        }
+        else if(this.peso >= 75){
+            this.categoria = 'meio-leve';  
+        }
+        else{
+            this.categoria = 'pesado';
+        }
+    }
+}
