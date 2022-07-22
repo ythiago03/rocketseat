@@ -1,25 +1,62 @@
-let day = document.querySelector('#day')
-let hours = document.querySelector('#hour')
-let minute = document.querySelector('#minute')
-let second = document.querySelector('#second')
+const day = document.querySelector('#day')
+const hours = document.querySelector('#hour')
+const minute = document.querySelector('#minute')
+const second = document.querySelector('#second')
 
+let timeDay = +day.textContent;
+let timeHour = +hours.textContent;
+let timeMinute = +minute.textContent;
+let timeSecond = +second.textContent;
 
-let teste = +second.textContent;
-let teste2 = +minute.textContent;
-
-const increment = () => {
-    teste = teste + 1
-
-    if(teste > 60){
-        teste = 0
-        teste2 = teste2 + 1
+const decrementDay = () => {
+    if(timeDay <= 0 ){
+        day.textContent = 00;
+        return;
     }
-    second.textContent = teste
-    minute.textContent = teste2
+    timeDay = timeDay - 1;
+    day.textContent = timeDay;
+};
+
+const decrementHour = () => {
+    if(timeDay <= 0 && timeHour <= 0){
+        hours.textContent = 00;
+        return;
+    }
+    else if(timeHour <= 0 ){
+        timeHour = 24;
+        decrementDay()
+    }
+
+    timeHour = timeHour - 1;
+    hours.textContent = timeHour;
+};
+
+const decrementMinute = () => {
+    if(timeDay <= 0 && timeHour <= 0 && timeMinute <= 0){
+        minute.textContent = 00;
+        return;
+    }
+    else if(timeMinute <= 0){
+        timeMinute = 60;
+        decrementHour()
+    }
+    timeMinute = timeMinute - 1;
+    minute.textContent = timeMinute
 }
 
-setInterval(() => increment(), 1000)
-
-if(teste > 10){
-    console.log('passou')
+const decrementSecond = () => {
+    if(timeDay <= 0 && timeHour <= 0 && timeMinute <= 0 && timeSecond <= 0){
+        second.textContent = 00;
+        alert('A contagem chegou ao fim!!!')
+        clearInterval(interval);
+        return;
+    }
+    else if(timeSecond <= 0){
+        timeSecond = 60;
+        decrementMinute()
+    }
+    timeSecond = timeSecond - 1;
+    second.textContent = timeSecond
 }
+
+let interval = setInterval(() => {decrementSecond()}, 1000)
