@@ -36,7 +36,7 @@ body{
   position: relative;
   max-width: 300px;
   width: 100%;
-  /* animation: closeSidebar 400ms; */
+  transition: all 400ms;
 }
 
 .s-header{
@@ -45,6 +45,9 @@ body{
   justify-content: space-between;
 }
 
+.s-header svg:last-child{
+  cursor: pointer;
+}
 /* list */
 
 .s-nav{
@@ -61,6 +64,11 @@ body{
   font-size: .8rem;
   width: 100%;
   font-weight: 400;
+  transition: all 400ms;
+}
+
+.s-item a:hover{
+  color: var(--body-bg-color);
 }
 
 .s-list .s-item:first-child{
@@ -71,11 +79,13 @@ body{
 }
 
 .s-item span{
-  animation: fadeText 300ms;
+
   padding-left: .5rem;
   opacity: 1;
   visibility: visible;
 }
+
+
 /* profile */
 
 .profile{
@@ -95,7 +105,6 @@ body{
 }
 
 .p-wrapper{
-  animation: fadeText 300ms;
   opacity: 1;
   visibility: visible;
   display: flex;
@@ -106,6 +115,38 @@ body{
 }
 .p-description p:last-child{
   font-size: .7rem;
+}
+
+/* animations */
+
+.closed-nav{
+  width: 70px;
+  transition: all 400ms;
+}
+
+.closed-nav > .s-header{
+  justify-content: center;
+}
+
+.closed-nav .logo{
+  display: none;
+}
+
+.closed-nav  span{
+    display: none;
+    /* animation: fadeText 300ms;
+    animation: closeSidebar 400ms;  */
+}
+
+.closed-wrapper{
+    justify-content: center;
+    padding: .5rem;
+    transition: all 400ms;
+}
+
+.closed-wrapper > .p-wrapper{
+    display: none;
+    transition: all 400ms;
 }
 
 @keyframes closeSidebar {
