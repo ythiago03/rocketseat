@@ -79,12 +79,11 @@ body{
 }
 
 .s-item span{
-
   padding-left: .5rem;
   opacity: 1;
   visibility: visible;
+  display: block;
 }
-
 
 /* profile */
 
@@ -117,11 +116,14 @@ body{
   font-size: .7rem;
 }
 
+.p-logout{
+  cursor: pointer;
+}
 /* animations */
 
 .closed-nav{
   width: 70px;
-  transition: all 400ms;
+  transition: all 300ms;
 }
 
 .closed-nav > .s-header{
@@ -133,9 +135,7 @@ body{
 }
 
 .closed-nav  span{
-    display: none;
-    /* animation: fadeText 300ms;
-    animation: closeSidebar 400ms;  */
+  display: none;
 }
 
 .closed-wrapper{
@@ -158,12 +158,18 @@ body{
 }
 
 @keyframes fadeText {
-  from{
+  0%{
+    display: block;
     opacity: 1;
     visibility: visible;
-  }to{
+  }
+  50%{
+    display: block;
     opacity: 0;
     visibility: hidden;
+  }
+  100%{
+    display: none;
   }
 }
 
